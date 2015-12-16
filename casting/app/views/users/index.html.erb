@@ -1,5 +1,29 @@
 <h1>Users</h1>
 
+<%= search_form_for @q do |f| %>
+
+  <%= f.label :full_name_cont %>
+  <%= f.search_field :full_name_cont %>
+
+  <%= f.collection_select(:hair_colour_cont, User.all.map(&:hair_colour).uniq.compact, :to_s, :to_s, { allow_blank: 'Hair colour'} ) %>
+  <%#= f.collection_select(:ethnicity_cont, User.all.map(&:ethnicity).uniq.compact, :to_s, :to_s, { allow_blank: 'Ethnicity'} ) %>
+  <%#= f.collection_select(:skin_color_cont, User.all.map(&:skin_color).uniq.compact, :to_s, :to_s, { allow_blank: 'Skin colour'} ) %>
+  <%#= f.collection_select(:eye_color_cont, User.all.map(&:eye_color).uniq.compact, :to_s, :to_s, { allow_blank: 'Eye colour'} ) %>
+  <%#= f.collection_select(:location_cont, User.all.map(&:location).uniq.compact, :to_s, :to_s, { allow_blank: 'Location'} ) %>
+  <%#= f.collection_select(:height_cont, User.all.map(&:height).uniq.compact, :to_s, :to_s, { allow_blank: 'Height'} ) %>
+  <%#= f.collection_select(:weight_cont, User.all.map(&:weight).uniq.compact, :to_s, :to_s, { allow_blank: 'Weight'} ) %>
+  <%#= f.collection_select(:chest_cont, User.all.map(&:chest).uniq.compact, :to_s, :to_s, { allow_blank: 'Chest'} ) %>
+  <%#= f.collection_select(:waist_cont, User.all.map(&:waist).uniq.compact, :to_s, :to_s, { allow_blank: 'Waist'} ) %>
+  <%#= f.collection_select(:hips_cont, User.all.map(&:hips).uniq.compact, :to_s, :to_s, { allow_blank: 'Hips'} ) %>
+  <%#= f.collection_select(:shoe_size_cont, User.all.map(&:shoe_size).uniq.compact, :to_s, :to_s, { allow_blank: 'Shoe size'} ) %>
+  <%#= f.collection_select(:hair_colour_cont, User.all.map(&:hair_colour).uniq.compact, :to_s, :to_s, { allow_blank: 'Hair colour'} ) %>
+  <%#= f.collection_select(:hair_length_cont, User.all.map(&:hair_length).uniq.compact, :to_s, :to_s, { allow_blank: 'Hair length'} ) %>
+  <%#= f.collection_select(:hair_type_cont, User.all.map(&:hair_type).uniq.compact, :to_s, :to_s, { allow_blank: 'Hair type'} ) %>
+  <%#= f.collection_select(:dress_size_cont, User.all.map(&:dress_size).uniq.compact, :to_s, :to_s, { allow_blank: 'Dress size'} ) %>
+
+  <%= f.submit %>
+<% end %>
+
 <ul>
 	<%= render @users %>
 </ul>
