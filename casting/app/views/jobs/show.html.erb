@@ -30,5 +30,21 @@
   <%= @job.user.try(:full_name) %>
 </p>
 
+<!-- start jtinder container -->
+<div id="tinderslide">
+  <ul>
+    <%= render @users %>
+  </ul>
+</div>
+
+<!-- jTinder trigger by buttons  -->
+<div class="actions">
+ <a href="#" class="dislike"><i></i></a>
+ <a href="#" class="like"><i></i></a>
+</div>
+
+<!-- jTinder status text  -->
+<div id="status"></div>
+
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>

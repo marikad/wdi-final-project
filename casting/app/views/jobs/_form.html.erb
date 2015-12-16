@@ -1,37 +1,97 @@
 <%= form_for(@job) do |f| %>
-  <% if @job.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+<% if @job.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
 
-      <ul>
-      <% @job.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @job.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :payment %><br>
-    <%= f.text_field :payment %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.date_select :end_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</div>
+<div class="field">
+  <%= f.label :description %><br>
+  <%= f.text_area :description %>
+</div>
+<div class="field">
+  <%= f.label :payment %><br>
+  <%= f.text_field :payment %>
+</div>
+<div class="field">
+  <%= f.label :start_date %><br>
+  <%= f.date_select :start_date %>
+</div>
+<div class="field">
+  <%= f.label :end_date %><br>
+  <%= f.date_select :end_date %>
+</div>
+<div class="field">
+  <%= f.label :hair_colour %><br>
+  <%= f.collection_select(:hair_colour, User.all.map(&:hair_colour).uniq.compact, :to_s, :to_s, allow_blank: false ) %>
+</div>
+<div class="field">
+  <%= f.label :ethnicity %><br>
+  <%#= f.collection_select(:ethnicity, User.all.map(&:ethnicity).uniq.compact, :to_s, :to_s, { allow_blank: 'Ethnicity'} ) %>
+</div>
+<div class="field">
+  <%= f.label :skin_color %><br>
+  <%#= f.collection_select(:skin_color, User.all.map(&:skin_color).uniq.compact, :to_s, :to_s, { allow_blank: 'Skin colour'} ) %>
+</div>
+<div class="field">
+  <%= f.label :eye_color %><br>
+  <%#= f.collection_select(:eye_color, User.all.map(&:eye_color).uniq.compact, :to_s, :to_s, { allow_blank: 'Eye colour'} ) %>
+</div>
+<div class="field"> 
+  <%= f.label :location %><br>
+  <%#= f.collection_select(:location, User.all.map(&:location).uniq.compact, :to_s, :to_s, { allow_blank: 'Location'} ) %>
+</div>
+<div class="field">
+  <%= f.label :height %><br>
+  <%#= f.collection_select(:height, User.all.map(&:height).uniq.compact, :to_s, :to_s, { allow_blank: 'Height'} ) %>
+</div>
+<div class="field">
+  <%= f.label :weight %><br>
+  <%#= f.collection_select(:weight, User.all.map(&:weight).uniq.compact, :to_s, :to_s, { allow_blank: 'Weight'} ) %>
+</div>
+<div class="field">
+  <%= f.label :chest %><br>
+  <%#= f.collection_select(:chest, User.all.map(&:chest).uniq.compact, :to_s, :to_s, { allow_blank: 'Chest'} ) %>
+</div>
+<div class="field">
+  <%= f.label :waist %><br>
+  <%#= f.collection_select(:waist, User.all.map(&:waist).uniq.compact, :to_s, :to_s, { allow_blank: 'Waist'} ) %>
+</div>
+<div class="field">
+  <%= f.label :hips %><br>
+  <%#= f.collection_select(:hips, User.all.map(&:hips).uniq.compact, :to_s, :to_s, { allow_blank: 'Hips'} ) %>
+</div>
+<div class="field">
+  <%= f.label :shoe_size %><br>
+  <%#= f.collection_select(:shoe_size, User.all.map(&:shoe_size).uniq.compact, :to_s, :to_s, { allow_blank: 'Shoe size'} ) %>
+</div>
+<div class="field">
+  <%= f.label :hair_colour %><br>
+  <%#= f.collection_select(:hair_colour, User.all.map(&:hair_colour).uniq.compact, :to_s, :to_s, { allow_blank: 'Hair colour'} ) %>
+</div>
+<div class="field">
+  <%= f.label :hair_length %><br>
+  <%#= f.collection_select(:hair_length, User.all.map(&:hair_length).uniq.compact, :to_s, :to_s, { allow_blank: 'Hair length'} ) %>
+</div>
+<div class="field">
+  <%= f.label :hair_type %><br>
+  <%#= f.collection_select(:hair_type, User.all.map(&:hair_type).uniq.compact, :to_s, :to_s, { allow_blank: 'Hair type'} ) %>
+</div>
+<div class="field">
+  <%= f.label :dress_size %><br>
+  <%#= f.collection_select(:dress_size, User.all.map(&:dress_size).uniq.compact, :to_s, :to_s, { allow_blank: 'Dress size'} ) %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>

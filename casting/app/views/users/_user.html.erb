@@ -1,12 +1,9 @@
-<li>
-	<%= user.email %>
-</li>
-<li>
-	<%= user.role %>
-</li>
-<li>
-	<%= link_to user.full_name, user %>
-</li>
-<li>
-	<%= image_tag(user.image) %>
+<li class="pane#{user.id}">
+	<div><%= user.email %></div>
+	<div><%= user.role %></div>
+	<div><%= link_to user.full_name, user %></div>
+	<div><%= image_tag(user.image) %></div>
+	<div><%= user.hair_colour %></div>
+	<div class="like"></div>
+	<div class="dislike"></div>
 </li>

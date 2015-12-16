@@ -10,6 +10,12 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+    q = {
+      "full_name_cont"=>"", 
+      "hair_colour_cont"=> @job.hair_colour
+    }
+    @q = User.ransack(q)
+    @users = @q.result(distinct: true)
   end
 
   # GET /jobs/new
@@ -69,6 +75,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:title, :description, :payment, :start_date, :end_date, :user_id)
+      params.require(:job).permit(:title, :description, :payment, :start_date, :end_date, :user_id, :location, :first_name, :height, :weight, :ethnicity, :skin_color, :eye_color, :chest, :waist, :hips, :shoe_size, :hair_colour, :hair_length, :hair_type, :dress_size)
     end
 end
