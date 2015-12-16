@@ -13,29 +13,38 @@ end
 
 def prepare_users 
 	agent = Mechanize.new
-
-	# Users.all do user 
-	# 	page  = agent.get(user.profile_url)
-	# 	scrape(page)
-	# end
-
-	scrape(agent.get(User.first.profile_url), User.first)
+	p "Beginning to update"
+	User.all.each do |user| 
+		next if !user.profile_url
+		page  = agent.get(user.profile_url)
+		scrape_detail(page, user)
+	end
 end
 
-def scrape(page, user)
+def scrape_detail(page, user)
 	physical_attributes = page.parser.css('#section5')
-	user.height      = physical_attributes.at('td:contains("Height:")').text.strip
-	user.weight      = physical_attributes.at('td:contains("Weight:")').text.strip
-	user.ethnicity   = physical_attributes.at('td:contains("Ethnicity:")').text.strip
-	user.skin_color  = physical_attributes.at('td:contains("Skin colour:")').text.strip
-	user.eye_color   = physical_attributes.at('td:contains("Eye colour:")').text.strip
-	user.chest       = physical_attributes.at('td:contains("Chest:")').text.strip
-	user.waist       = physical_attributes.at('td:contains("Waist:")').text.strip
-	user.hips        = physical_attributes.at('td:contains("Hips:")').text.strip
-	user.shoe_size   = physical_attributes.at('td:contains("Show size:")').text.strip
-	user.hair_colour = physical_attributes.at('td:contains("Hair colour:")').text.strip
-	user.hair_length = physical_attributes.at('td:contains("Hair length:")').text.strip
-	user.hair_type   = physical_attributes.at('td:contains("Hair type:")').text.strip
-	user.dress_size  = physical_attributes.at('td:contains("Dress size:")').text.strip
+	user.full_name = page.parser.css(".profile__name").try(:text).try(:strip)
+	{
+		height: "Height:",
+		weight: "Weight:",
+		ethnicity: "Ethnicity:",
+		skin_color: "Skin colour:",
+		eye_color: "Eye colour:",
+		chest: "Chest:",
+		waist: "Waist:",
+		hips: "Hips:",
+		shoe_size: "Shoe size:",
+		hair_colour: "Hair colour:",
+		hair_length: "Hair length:",
+		hair_type: "Hair type:",
+		dress_size: "Dress size:"
+	}.each do |key, value|
+		user.send("#{key}=", get_text_content(physical_attributes, value))
+	end 
 	user.save
+	p "#{user.full_name} was updated"
+end
+
+def get_text_content(physical_attributes, attribute)
+	physical_attributes.at("td:contains('#{attribute}')").try(:text).try(:gsub, attribute, "").try(:strip).try(:delete, " ")
 end

@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  full_name: MyString
   image: MyString
   profile_url: MyString
   location: MyString
@@ -20,6 +21,7 @@ one:
   dress_size: MyString
 
 two:
+  full_name: MyString
   image: MyString
   profile_url: MyString
   location: MyString
