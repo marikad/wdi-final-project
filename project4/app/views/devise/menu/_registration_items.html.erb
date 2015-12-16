@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+	<li>
+		<%= link_to("Profile", current_user) %>
+	</li>
+	<li class="nav-item cd-signin">
+		<%= link_to('Edit registration', edit_user_registration_path, class: "nav-login__item nav__item col-sm-4") %>
+	</li>
+<% else %>
+	<li class="nav-item cd-signin">
+		<%= link_to('Register', new_user_registration_path)  %>
+	</li>
+<% end %>

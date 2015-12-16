@@ -1,0 +1,24 @@
+<header> 
+  <nav class="nav-clearfix" >
+    <div class="nav-wrapper">
+        <!--     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button> -->
+              <div class="row relative nav-primary-wrapper active">
+                <a href="/" class="nav_item nav-logo small-6 medium-2 columns">
+                <%= image_tag("logo.svg", class: "logo") %></a>
+                <div class="nav-login">
+                  <ul class="nav navbar-nav">
+                    <li><%= render 'devise/menu/login_items' %></li>
+                    <li><a href="/users">Talent Directory</a>
+                    </li>
+                    <li><%= render 'devise/menu/registration_items' %></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>

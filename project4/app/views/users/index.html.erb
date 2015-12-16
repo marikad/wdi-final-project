@@ -1,0 +1,23 @@
+
+
+
+<h1 class="text-center">All Talent</h1>
+
+<ul class="users container">
+<div class="row">
+<ul>
+  <% @users.each do |user| %>
+  <div class="col-md-4 card">
+    <li>
+      <%= link_to user.name, user, class: "title" %>
+    </li>
+    <li>
+    <%= user.email %>
+    </li>
+    <li>
+    <%= image_tag user.image, class: "card-img-top" %>
+    </li>
+    </div>
+  <% end %>
+</ul>
+</div>

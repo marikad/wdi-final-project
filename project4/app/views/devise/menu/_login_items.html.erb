@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <li class="nav-item cd-signin">
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "nav-login__item nav__item col-sm-4") %>        
+  </li>
+<% else %>
+  <li class="nav-item cd-signin">
+  <%= link_to('Login', new_user_session_path, class: " nav-login__item nav__item col-sm-4")  %>  
+  </li>
+<% end %>
+
