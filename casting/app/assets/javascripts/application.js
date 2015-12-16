@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery.transform2d
 //= require jTinder
+//= require bootstrap-sprockets
 //= require_tree .

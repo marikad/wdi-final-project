@@ -24,6 +24,18 @@
   <%= f.submit %>
 <% end %>
 
-<ul>
-	<%= render @users %>
-</ul>
+<!-- start jtinder container -->
+<div id="tinderslide">
+  <ul>
+    <%= render @users %>
+  </ul>
+</div>
+
+<!-- jTinder trigger by buttons  -->
+<div class="actions">
+ <a href="#" class="dislike"><i></i></a>
+ <a href="#" class="like"><i></i></a>
+</div>
+
+<!-- jTinder status text  -->
+<div id="status"></div>
