@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Casting</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Casting</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
+	<header>
+		<%= link_to "All Actors", users_path %>
+		<%= link_to "All Jobs", jobs_path %>
+		<% if current_user %>
+		<%= link_to "Create Job", new_job_path %>
+		<%= current_user.email %>
+		<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+		<% else %>
+		<%= link_to "Sign In", new_user_session_path %>
+		<%= link_to "Register", new_user_registration_path %>
+		<% end %>
+	</header>
 
-<%= yield %>
+	<% flash.each do |name, message| %>
+	<div class="flash-message flash-message-<%= name %>">
+		<%= message %>
+	</div>
+	<% end %>
+
+
+	<%= yield %>
 
 </body>
 </html>

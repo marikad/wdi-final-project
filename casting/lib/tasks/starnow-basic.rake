@@ -38,7 +38,10 @@ def scrape(page_count=1)
 			  	profile_url: profile_url,
 			  	image: image,
 			  	location: location,
-			  	first_name: first_name
+			  	first_name: first_name,
+			  	role: "actor",
+			  	email: "temp_#{User.all.count}@temp.com",
+			  	password: Devise.friendly_token.first(8)
 			  })
 			  p "#{user} was created"
 			end

@@ -19,6 +19,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :hair_length
       t.string :hair_type
       t.string :dress_size
+      t.string :role
 
       t.timestamps null: false
     end
