@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Jobs</h1>
+<div class="modal-dialog">
+  <div class="modal-content">
+<h1 class="text-center">Listing Jobs</h1>
 
 <table>
+<div class="container">
   <thead>
     <tr>
       <th>Title</th>
@@ -30,8 +32,11 @@
       </tr>
     <% end %>
   </tbody>
+  </div>
 </table>
 
 <br>
 
-<%= link_to 'New Job', new_job_path %>
+<%= link_to 'New Job', new_job_path, class: 'btn btn-primary col-md-12 text-center' %>
+</div>
+

@@ -1,11 +1,19 @@
-<h1>Users</h1>
 
+<div class="modal-dialog" id="mymodal">
+<div class="modal-content">
+<h1 class="text-center">Talent</h1>
+
+<div class="modal-body">
+       <ul class="errors"></ul>
 <%= search_form_for @q do |f| %>
-
-  <%= f.label :full_name_cont %>
-  <%= f.search_field :full_name_cont %>
+ 
+ <div class="field form-group">
+  <%= f.label :full_name_cont, class: "control-label" %>
+  <%= f.search_field :full_name_cont, class: "form-control" %>
+  </div>
 
   <%= f.collection_select(:hair_colour_cont, User.all.map(&:hair_colour).uniq.compact, :to_s, :to_s, { allow_blank: 'Hair colour'} ) %>
+ 
   <%#= f.collection_select(:ethnicity_cont, User.all.map(&:ethnicity).uniq.compact, :to_s, :to_s, { allow_blank: 'Ethnicity'} ) %>
   <%#= f.collection_select(:skin_color_cont, User.all.map(&:skin_color).uniq.compact, :to_s, :to_s, { allow_blank: 'Skin colour'} ) %>
   <%#= f.collection_select(:eye_color_cont, User.all.map(&:eye_color).uniq.compact, :to_s, :to_s, { allow_blank: 'Eye colour'} ) %>
@@ -22,6 +30,9 @@
   <%#= f.collection_select(:dress_size_cont, User.all.map(&:dress_size).uniq.compact, :to_s, :to_s, { allow_blank: 'Dress size'} ) %>
 
   <%= f.submit %>
+  </div>
+  </div>
+  </div>
 <% end %>
 
 <!-- start jtinder container -->

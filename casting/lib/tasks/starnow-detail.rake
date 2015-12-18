@@ -1,7 +1,7 @@
 # http://robdodson.me/crawling-pages-with-mechanize-and-nokogiri/
 
 # run with: 
-# rake scrape:basic
+# rake scrape:detail
 require 'mechanize'
 
 namespace :scrape  do

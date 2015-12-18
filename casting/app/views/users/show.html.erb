@@ -1,3 +1,18 @@
 <h1><%= @user.email %></h1>
 
 <%= image_tag(@user.image) %>
+
+<% if @user.role === "user" %>
+	<h1>Actors/Actresses Liked</h1>
+	<ul>
+		<% @user.find_liked_items.each do |artist| %>
+		<li>
+			<ul>
+				<li><%= image_tag (artist.image), width:'200', height: '200' %></li>
+				<li><%= artist.full_name %></li>
+			</ul>
+		</li>
+		<% end %>
+	</ul>
+
+<% end %>

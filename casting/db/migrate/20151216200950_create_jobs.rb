@@ -7,7 +7,6 @@ class CreateJobs < ActiveRecord::Migration
       t.date :start_date
       t.date :end_date
       t.references :user, index: true, foreign_key: true
-      t.string :profile_url
       t.string :location
       t.string :first_name
       t.string :height

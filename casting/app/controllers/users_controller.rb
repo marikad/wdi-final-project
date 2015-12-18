@@ -10,4 +10,16 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   end
 
+  def upvote
+    @user = User.find(params[:id])
+    @user.upvote_by current_user
+    redirect_to users_link
+  end
+
+  def downvote
+    @user = User.find(params[:id])
+    @user.downvote_by current_user
+    redirect_to users_link
+  end
+
 end

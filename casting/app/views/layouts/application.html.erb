@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Casting</title>
+<script src="http://code.onion.com/fartscroll.js"></script>
+	<title>Castinder</title>
 	<%= stylesheet_link_tag    'application', media: 'all' %>
 	<%= javascript_include_tag 'application' %>
 	<%= csrf_meta_tags %>
@@ -17,23 +18,20 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <%= link_to "Casting", root_path, class:"navbar-brand" %>
+	      <%= link_to "CasTinder", root_path, class:"navbar-brand" %>
+	    </div>
+	    <div class="navbar navbar-default navbar-fixed-bottom">
+	    	
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <form class="navbar-form navbar-left" role="search">
-	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search">
-	        </div>
-	        <button type="submit" class="btn btn-default">Submit</button>
-	      </form>
+	  
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><%= link_to "All Actors", users_path %></li>
 	        <li><%= link_to "All Jobs", jobs_path %></li>
 	        <% if current_user %>
 	        	<li><%= link_to "Create Job", new_job_path %></li>
-	        	<li><%= current_user.email %></li>
+	        	<li><%= link_to current_user.email, current_user %></li>
 	        	<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 	        <% else %>
 	        	<li><%= link_to "Sign In", new_user_session_path %></li>
@@ -52,8 +50,6 @@
 		<%= message %>
 	</div>
 	<% end %>
-
-
 	<%= yield %>
 
 </body>

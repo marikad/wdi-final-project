@@ -11,7 +11,7 @@ namespace :scrape  do
   end
 end
 
-def scrape(page_count=1)
+def scrape(page_count=2)
 	base_url   = "http://www.starnow.co.uk"
 	path       = "/talent/uk/"
 	url        = "#{base_url}#{path}?p=#{page_count}" 
